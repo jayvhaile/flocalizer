@@ -1,6 +1,5 @@
 import 'package:flocalizer/models/translation.dart';
 import 'package:flutter/material.dart';
-import 'package:meta/meta.dart';
 
 class FLocale {
   final String languageCode;

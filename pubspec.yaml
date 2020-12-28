@@ -1,7 +1,6 @@
 name: flocalizer
 description: An extensible and powerful flutter localization package
 version: 0.0.1
-author: "JvHaile"
 homepage: "https://github.com/jayvhaile/flocalizer.git"
 
 environment:
