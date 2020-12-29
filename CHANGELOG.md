@@ -6,3 +6,8 @@ First Version
 
 FLocalizationProvider is now a singleton
 Updated the FlocalizationProviderWidget to work with the FLocalizationProvider
+
+
+## [0.0.3] - Bug Fixes
+
+Fixed not updating locales from loader issue
