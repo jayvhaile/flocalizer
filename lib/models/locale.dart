@@ -34,4 +34,9 @@ class FLocale {
 
   @override
   int get hashCode => id.hashCode ^ translation.hashCode;
+
+  @override
+  String toString() {
+    return 'FLocale{languageCode: $languageCode, countryCode: $countryCode, translation: ${translation.translationMap}}';
+  }
 }

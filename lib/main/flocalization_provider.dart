@@ -59,11 +59,13 @@ class FlocalizationProvider {
     this._activeLocaleId = defaultActiveLocaleId;
     _activeFlocalizationStreamController.sink.add(getActiveFlocalization());
     _loaderSubscription = fLocalesLoader.load().listen(setLocales);
-    this._stream=this._activeFlocalizationStreamController.stream.asBroadcastStream();
+    this._stream =
+        this._activeFlocalizationStreamController.stream.asBroadcastStream();
   }
 
-  setLocales(List<FLocale> defaultLocales) {
-    this._locales = _locales;
+  setLocales(List<FLocale> locales) {
+    print("SET LOCALES $locales");
+    this._locales = locales;
     _activeFlocalizationStreamController.sink.add(getActiveFlocalization());
   }
 
