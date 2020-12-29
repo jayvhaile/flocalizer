@@ -25,7 +25,7 @@ class AssetFlocalesLoader implements FLocalesLoader {
     yield await Future.wait(
       this.localeCodes.map(
         (lc) async {
-          final path = "$rootPath${lc.languageCode}_${lc.countryCode}";
+          final path = "$rootPath${lc.languageCode}_${lc.countryCode}.json";
           final translation = await rootBundle.loadStructuredData<Translation>(
             path,
             (String value) async {

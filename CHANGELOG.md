@@ -11,3 +11,7 @@ Updated the FlocalizationProviderWidget to work with the FLocalizationProvider
 ## [0.0.3] - Bug Fixes
 
 Fixed not updating locales from loader issue
+
+## [0.0.4] - Bug Fixes
+
+Fixed AssetFLocaleLoader
