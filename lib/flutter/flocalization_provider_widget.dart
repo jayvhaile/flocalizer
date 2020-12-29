@@ -1,35 +1,20 @@
-import 'package:flocalizer/main/flocalization.dart';
+import 'package:flocalizer/flocalizer.dart';
 import 'package:flutter/material.dart';
 
-extension flocalization on BuildContext {
-  String tr(String key, [Map<String, dynamic> args]) {
-    return FLocalizationProviderWidget.of(this).flocalization.tr(key, args);
-  }
-}
+class FlocalizationProviderWidget extends StatelessWidget {
+  final FlocalizationProvider provider;
+  final WidgetBuilder builder;
 
-class FLocalizationProviderWidget extends InheritedWidget {
-  final Flocalization flocalization;
-  final Widget child;
-
-  FLocalizationProviderWidget({
-    Key key,
-    this.flocalization,
-    this.child,
-  }) : super(key: key, child: child);
-
-  factory FLocalizationProviderWidget.of(BuildContext context) {
-    FLocalizationProviderWidget widget = context
-        .dependOnInheritedWidgetOfExactType<FLocalizationProviderWidget>();
-    return widget;
-  }
+  const FlocalizationProviderWidget({Key key, this.provider, this.builder})
+      : super(key: key);
 
   @override
-  bool updateShouldNotify(covariant InheritedWidget oldWidget) {
-    if (oldWidget is FLocalizationProviderWidget) {
-      return [
-        oldWidget.flocalization != this.flocalization,
-      ].any((v) => v);
-    }
-    return false;
+  Widget build(BuildContext context) {
+    return StreamBuilder<Flocalization>(
+      stream: provider.flocalizationStream,
+      builder: (context, snapshot) {
+        return builder(context);
+      },
+    );
   }
 }

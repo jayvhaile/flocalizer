@@ -30,11 +30,9 @@ main() {
   );
   final flocalization = provider.getActiveFlocalization();
 
-  final widget = FLocalizationProviderWidget(
-    flocalization: flocalization,
-    child: Builder(
-      builder: (context) => MaterialApp(home: Text(context.tr('greetings'))),
-    ),
+  final widget = FlocalizationProviderWidget(
+    provider: provider,
+    builder: (context) => MaterialApp(home: Text('greetings'.tr())),
   );
   group('Flocalization Widget Tests', () {
     testWidgets(
@@ -55,12 +53,10 @@ main() {
           initialData: flocalization,
           stream: provider.flocalizationStream,
           builder: (context, snapshot) {
-            return FLocalizationProviderWidget(
-              flocalization: snapshot.data,
-              child: Builder(
-                builder: (context) => MaterialApp(
-                  home: Text(context.tr('greetings')),
-                ),
+            return FlocalizationProviderWidget(
+              provider:provider,
+              builder: (context) => MaterialApp(
+                home: Text('greetings'.tr()),
               ),
             );
           },
